@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="org.apache.cordova.core.keyboard"
+      version="0.1.0">
+
+    <name>Keyboard</name>
+    <description>Cordova Keyboard Plugin</description>
+    <license>Apache</license>
+    <keywords>cordova,keyboard</keywords>
+
+    <!-- android -->
+    <platform name="android">
+
+        <js-module src="www/keyboard.js" name="keyboard">
+            <clobbers target="navigator.keyboard" />
+        </js-module>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Keyboard">
+                <param name="android-package" value="org.apache.cordova.core.Keyboard"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/Keyboard.java" target-dir="src/org/apache/cordova/core" />
+
+    </platform>
+
+</plugin>
