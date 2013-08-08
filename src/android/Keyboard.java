@@ -2,8 +2,8 @@ package org.apache.cordova.core;
 
 import org.json.JSONArray;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.CordovaPlugin;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
 
 import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
@@ -15,12 +15,12 @@ public class Keyboard extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         if (action.equals("show")) {
-            this.showKeyBoard();
+            this.showKeyboard();
             callbackContext.success("done");
             return true;
         } 
         else if (action.equals("hide")) {
-            this.hideKeyBoard();
+            this.hideKeyboard();
             callbackContext.success();
             return true;
         }
@@ -36,7 +36,7 @@ public class Keyboard extends CordovaPlugin {
         ((InputMethodManager) cordova.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(webView, 0); 
     }
 
-    public void hideKeyBoard() {
+    public void hideKeyboard() {
         InputMethodManager mgr = (InputMethodManager) cordova.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         mgr.hideSoftInputFromWindow(webView.getWindowToken(), 0);
     }
